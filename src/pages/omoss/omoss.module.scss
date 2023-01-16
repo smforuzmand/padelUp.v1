@@ -1,0 +1,99 @@
+.heading {
+  color: var(--white);
+  max-width: var(--max-width);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  height: 100%;
+  @include center;
+  flex-direction: column;
+  h1 {
+    font-size: 5rem;
+  }
+
+  & > div {
+    position: absolute;
+    bottom: 5rem;
+  }
+}
+
+.part2 {
+  width: 100%;
+  min-height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+
+    & > h3 {
+      margin-top: 6rem;
+      font-size: 4rem;
+      color: var(--color-DarkBlue);
+    }
+
+    & > p {
+      text-align: justify;
+      margin: 2rem 0;
+    }
+
+    & > div {
+      margin: 3rem 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      & > a {
+        padding: 1rem;
+        width: 45%;
+      }
+    }
+  }
+}
+
+.info {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 15rem 0 8rem 0;
+  @include center;
+  flex-direction: column;
+  h3 {
+    width: 65rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+    font-size: 4rem;
+  }
+
+  &--content {
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem 8rem;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    & > div {
+      display: flex;
+      @include center;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      font-size: 3rem;
+      width: 55rem;
+
+      & > div > h4 {
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+      }
+
+      & > img {
+        margin: -4.5rem 0.5rem 0 0;
+      }
+    }
+  }
+}

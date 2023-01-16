@@ -1,0 +1,152 @@
+.heading {
+  max-width: var(--max-width);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  height: 100%;
+  @include center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 3rem;
+  }
+
+  & > div {
+    position: absolute;
+    bottom: 5rem;
+  }
+}
+
+.part2 {
+  width: 100%;
+  min-height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+
+    & > h3 {
+      margin-top: 6rem;
+      font-size: 4rem;
+      color: var(--color-DarkBlue);
+    }
+
+    & > p {
+      text-align: justify;
+      margin: 2rem 0;
+    }
+
+    & > div {
+      margin: 3rem 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      & > a {
+        padding: 1rem;
+        width: 45%;
+      }
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: var(--max-width-2);
+  text-align: center;
+  color: var(--white);
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 6rem;
+  }
+
+  p {
+    font-size: 2.5rem;
+    margin-bottom: 6rem;
+  }
+
+  & > div {
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    & > a {
+      padding: 1rem;
+      width: 45%;
+    }
+  }
+}
+
+.ScoreBoard {
+  width: 100%;
+  color: var(--white);
+  max-width: var(--max-width-2);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+
+  & > div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    margin: 5rem 0 2rem 0;
+    font-weight: 400;
+    text-align: center;
+    width: 70rem;
+    font-size: 5rem;
+  }
+}
+
+.info {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 15rem 0 8rem 0;
+  @include center;
+  flex-direction: column;
+  h3 {
+    width: 65rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+    font-size: 4rem;
+  }
+
+  &--content {
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem 8rem;
+
+    & > div {
+      display: flex;
+      @include center;
+      flex-direction: row-reverse;
+      font-size: 3rem;
+      width: 30rem;
+
+      & > h4 {
+        font-weight: 500;
+      }
+    }
+  }
+}

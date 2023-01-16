@@ -1,0 +1,20 @@
+.ReadMore {
+  text-transform: uppercase;
+  color: var(--color-Green);
+  @include center;
+  flex-direction: column;
+
+  & > img {
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: -2rem;
+  }
+
+  & > a {
+    text-decoration: underline;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.cardContainer {
+  height: 50rem;
+  @include center;
+  background-color: rgba(var(--color-LightBlue-rgb), 0.2);
+
+  & > div {
+    max-width: var(--max-width);
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+  }
+}
+
+.helper {
+  height: 10rem;
+  background-color: var(--color-DarkBlue);
+}
+
+.card {
+  width: 100%;
+  background-color: rgba(var(--white-rgb), 0.5);
+  overflow: hidden;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > h3 {
+    margin: 2rem 0 0.5rem 0;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+  }
+
+  & > p {
+    font-weight: 500;
+    margin-bottom: 3rem;
+  }
+  & > a {
+    width: 20rem;
+    margin-bottom: 3rem;
+  }
+
+  & > div {
+    @include center;
+    height: 12rem;
+    width: 100%;
+    background-color: var(--white);
+  }
+}

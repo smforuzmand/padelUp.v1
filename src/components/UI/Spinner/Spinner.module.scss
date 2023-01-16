@@ -1,0 +1,9 @@
+.spinner {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  color: var(--color-DarkBlue);
+  & > svg {
+    scale: 5;
+  }
+}

@@ -1,0 +1,16 @@
+.heading {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.readmore {
+  background-color: rgba(var(--color-DarkBlue-rgb), 0.8);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 15rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
