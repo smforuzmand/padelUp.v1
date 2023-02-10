@@ -1,0 +1,26 @@
+the useState hook is used to store the content array in the component's state. The setContent function can be used to update the state and re-render the component.
+You could also fetch the data from an API, store it in state, and render it in the component, like this:
+
+import React, { useState, useEffect } from "react";
+
+const ScoreBoard = (props) => {
+  const [content, setContent] = useState([]);
+
+  useEffect(() => {
+    fetch("https://my-api.com/scores")
+      .then((response) => response.json())
+      .then((data) => setContent(data));
+  }, []);
+
+  const firstFourScore = props.limit
+    ? content.filter((score, index) => index < 4)
+    : [];
+
+  return (
+    // ... the rest of the component code
+  );
+};
+
+export default ScoreBoard;
+
+In this example, the useEffect hook is used to fetch data from an API when the component is mounted, and store the data in state using setContent. The second argument to useEffect is an empty array, which means the effect will only run once, when the component is first mounted.
