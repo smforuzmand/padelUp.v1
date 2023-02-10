@@ -1,49 +1,35 @@
 import styles from "./ScoreBoard.module.scss";
-
-const content = [
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-  {
-    name: "foretagnsamnam",
-    point: "70",
-  },
-];
+import React, { useState } from "react";
 
 const ScoreBoard = (props) => {
+  const [content, setContent] = useState([
+    {
+      name: "Company 1",
+      point: "70",
+    },
+    {
+      name: "Company 2",
+      point: "80",
+    },
+    {
+      name: "Company 3",
+      point: "60",
+    },
+    {
+      name: "Company 4",
+      point: "90",
+    },
+  ]);
+
   const firstFourScore = props.limit
     ? content.filter((score, index) => index < 4)
     : [];
+
   return (
     <div className={styles.board}>
       <div className={styles.header}>
-        <h4>Forteg</h4>
-        <h4>Poang</h4>
+        <h4>Företag</h4>
+        <h4>Poäng</h4>
       </div>
 
       <div className={styles.content}>
