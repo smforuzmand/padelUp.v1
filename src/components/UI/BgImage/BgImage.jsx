@@ -1,20 +1,24 @@
 import styles from "./BgImage.module.scss";
 
-const BgImage = (props) => {
-  return (
-    <div
-      style={{
-        height: `${props.height ?? "100vh"}`,
-        background: `url(${props.imgUrl ?? ""})`,
-        backgroundPosition: `${props.position ?? "center"}`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-      className={`${styles.heading} ${props.center ? "center" : ""}`}
-    >
-      {props.children}
-    </div>
-  );
-};
+const BgImage = ({
+  height = "100vh",
+  imgUrl = "",
+  position = "center",
+  center = false,
+  children,
+}) => (
+  <div
+    style={{
+      height,
+      background: `url(${imgUrl})`,
+      backgroundPosition: position,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    }}
+    className={`${styles.heading} ${center ? "center" : ""}`}
+  >
+    {children}
+  </div>
+);
 
 export default BgImage;
