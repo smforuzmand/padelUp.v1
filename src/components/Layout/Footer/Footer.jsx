@@ -1,13 +1,14 @@
-import styles from "./Footer.module.scss";
-import LogoImage from "../../../assets/img/PadelUp_light.png";
 import { Link } from "react-router-dom";
 import { MailIcon } from "../../icons/MailIcon";
+import LogoImage from "../../../assets/img/PadelUp_light.png";
+import styles from "./Footer.module.scss";
+
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <nav>
         <div className={styles.companyInfo}>
-          <img width={300} src={LogoImage} alt="" />
+          <img src={LogoImage} alt="PadelUp" width={300} />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Dignissimos fugiat magni est, ex facere soluta sunt maiores dolorum
@@ -16,9 +17,7 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.navbar}>
-          <div className={styles.header}>
-            <h3>MENY</h3>
-          </div>
+          <h3>MENY</h3>
           <ul>
             <li>
               <Link to="/">&rsaquo; Hem</Link>
@@ -38,12 +37,10 @@ const Footer = () => {
           </ul>
         </div>
         <div className={styles.contact}>
-          <div className={styles.header}>
-            <h3>Kontakt</h3>
-          </div>
+          <h3>Kontakt</h3>
           <Link to="/kontakt" className="button">
             <MailIcon />
-            Kontact Oss
+            Kontakta oss
           </Link>
         </div>
       </nav>
