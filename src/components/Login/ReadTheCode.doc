@@ -1,0 +1,7 @@
+ we're using the fetch function to make a POST request to the /api/v1/player endpoint with the email and password as the request body. We're also specifying the Content-Type header as application/json to indicate that we're sending JSON data.
+
+Once the response is received, we're checking whether it was successful or not using the ok property on the response object. If it was successful, we can do something with the response data. If not, we can handle the error response appropriately.
+
+Note that we're using a button element instead of an a element for the "logga in" button, and setting its type attribute to "button" to prevent it from submitting the form. This is a best practice for accessibility and ensures that the submitHandler function is called only when the button is clicked, and not when the user presses enter in the form.
+                            
+ using axios.post to send a POST request to an API endpoint with the user's email and password as the request body. You'll need to replace "https://...login" with the actual URL API endpoint. The await keyword is used to wait for the response from the server. The response data can be accessed using response.data. You can then do something with the data, such as storing it in state or displaying it to the user. If an error occurs, it will be caught by the try-catch block and logged to the console.
