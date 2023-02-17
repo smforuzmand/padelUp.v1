@@ -3,61 +3,61 @@ import { LoginIcon } from "../icons/LoginIcon";
 import styles from "./Login.module.scss";
 import { validateEmail } from "../../utils/regex";
 
-const Login = (props) => {
+function Login() {
   const [email, setEmail] = useState("");
-  const [emailHasError, setEmailHasError] = useState(false);
-
   const [password, setPassword] = useState("");
-  const [passwordHasError, setPasswordHasError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
-  const emailChangeHandler = (email) => {
-    setEmail(email);
-    if (emailHasError) setEmailHasError(false);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (emailError) setEmailError(false);
   };
 
-  const passwordChangeHandler = (password) => {
-    setPassword(password);
-    if (passwordHasError) setPasswordHasError(false);
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (passwordError) setPasswordError(false);
   };
 
-  const submitHandler = () => {
-    if (!validateEmail(email) || password == "") {
-      if (password == "") setPasswordHasError(true);
-      if (!validateEmail(email)) setEmailHasError(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateEmail(email) || password === "") {
+      if (password === "") setPasswordError(true);
+      if (!validateEmail(email)) setEmailError(true);
       return;
     }
-
-    // send http request
+    // Send HTTP request
   };
 
   return (
     <div className={styles.login}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>PadelUp Sweden</h3>
         <input
           type="text"
-          name="mail"
-          id="mail"
-          placeholder="MAIL"
-          className={`${emailHasError ? "error" : ""}`}
-          onChange={(e) => emailChangeHandler(e.target.value)}
+          name="email"
+          id="email"
+          placeholder="Email"
+          className={emailError ? "error" : ""}
+          value={email}
+          onChange={handleEmailChange}
         />
         <input
           type="password"
           name="password"
           id="password"
-          placeholder="lösenord"
-          className={`${passwordHasError ? styles.error : ""}`}
-          onChange={(e) => passwordChangeHandler(e.target.value)}
+          placeholder="Lösenord"
+          className={passwordError ? styles.error : ""}
+          value={password}
+          onChange={handlePasswordChange}
         />
-
-        <a onClick={submitHandler} className="button">
+        <button type="submit" className="button">
           <LoginIcon />
-          logga in
-        </a>
+          Logga in
+        </button>
       </form>
     </div>
   );
-};
+}
 
 export default Login;
