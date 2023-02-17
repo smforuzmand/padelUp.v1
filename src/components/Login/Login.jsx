@@ -3,61 +3,80 @@ import { LoginIcon } from "../icons/LoginIcon";
 import styles from "./Login.module.scss";
 import { validateEmail } from "../../utils/regex";
 
-function Login() {
+const Login = (props) => {
   const [email, setEmail] = useState("");
+  const [emailHasError, setEmailHasError] = useState(false);
+
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [passwordHasError, setPasswordHasError] = useState(false);
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    if (emailError) setEmailError(false);
+  const emailChangeHandler = (email) => {
+    setEmail(email);
+    if (emailHasError) setEmailHasError(false);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    if (passwordError) setPasswordError(false);
+  const passwordChangeHandler = (password) => {
+    setPassword(password);
+    if (passwordHasError) setPasswordHasError(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const submitHandler = async () => {
     if (!validateEmail(email) || password === "") {
-      if (password === "") setPasswordError(true);
-      if (!validateEmail(email)) setEmailError(true);
+      if (password === "") setPasswordHasError(true);
+      if (!validateEmail(email)) setEmailHasError(true);
       return;
     }
-    // Send HTTP request
+
+    try {
+      const response = await fetch("/api/v1/player", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        // Player created successfully, do something
+      } else {
+        // Handle error response
+      }
+    } catch (error) {
+      // Handle network error
+    }
   };
 
   return (
     <div className={styles.login}>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h3>PadelUp Sweden</h3>
         <input
           type="text"
-          name="email"
-          id="email"
-          placeholder="Email"
-          className={emailError ? "error" : ""}
-          value={email}
-          onChange={handleEmailChange}
+          name="mail"
+          id="mail"
+          placeholder="MAIL"
+          className={`${emailHasError ? "error" : ""}`}
+          onChange={(e) => emailChangeHandler(e.target.value)}
         />
         <input
           type="password"
           name="password"
           id="password"
-          placeholder="Lösenord"
-          className={passwordError ? styles.error : ""}
-          value={password}
-          onChange={handlePasswordChange}
+          placeholder="lösenord"
+          className={`${passwordHasError ? styles.error : ""}`}
+          onChange={(e) => passwordChangeHandler(e.target.value)}
         />
-        <button type="submit" className="button">
+
+        <button type="button" onClick={submitHandler} className="button">
           <LoginIcon />
-          Logga in
+          logga in
         </button>
       </form>
     </div>
   );
-}
+};
 
 export default Login;
